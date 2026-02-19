@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced DevOps Project</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      .card {
+        background: white;
+        border-radius: 14px;
+        padding: 28px;
+        box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
+        width: min(700px, 92vw);
+      }
+      h1 {
+        margin: 0 0 12px;
+        color: #0f172a;
+      }
+      p {
+        color: #334155;
+      }
+      code {
+        background: #e2e8f0;
+        padding: 2px 6px;
+        border-radius: 6px;
+      }
+      pre {
+        background: #0f172a;
+        color: #f8fafc;
+        padding: 14px;
+        border-radius: 8px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Multi-Container Docker Setup</h1>
+      <p>Frontend, Backend API, PostgreSQL, and Nginx reverse proxy are running.</p>
+      <p>Checking API from browser using <code>/api/health</code>:</p>
+      <pre id="result">Loading...</pre>
+    </div>
+
+    <script>
+      fetch('/api/health')
+        .then((res) => res.json())
+        .then((data) => {
+          document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch((err) => {
+          document.getElementById('result').textContent = `API error: ${err.message}`;
+        });
+    </script>
+  </body>
+</html>

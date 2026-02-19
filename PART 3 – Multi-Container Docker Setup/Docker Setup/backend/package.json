@@ -1,0 +1,14 @@
+{
+  "name": "advance-devops-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend API for multi-container Docker setup",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "4.21.2",
+    "pg": "8.13.1"
+  }
+}
